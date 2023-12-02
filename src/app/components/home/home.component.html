@@ -1,0 +1,47 @@
+<main class="bg-dark w-full max-w-[1400px] mx-auto">
+    <!--Carousel-->
+    <section class="w-full mx-auto max-w-[1300px] ">
+        <p-carousel [value]="movies" [numVisible]="1" [numScroll]="1" class="mycarousel" 
+                    [circular]="true" [autoplayInterval]="5000" 
+                    >
+            <ng-template let-movie pTemplate="item">
+                <a routerLink="/details/{{movie.id}}">
+                    <img src="../../../assets/carousel/{{movie.carousel}}.jpg" alt="{{movie.title}}"
+                    class="mx-auto">
+                </a>
+            </ng-template>
+        </p-carousel>
+    </section>
+
+    <!--Movie List-->
+    <section class="w-full flex flex-col gap-2 mt-4 px-2 pb-6 max-w-[1300px] mx-auto">
+        <div class="flex items-center">        
+                <h2 class="font-bold text-md md:text-xl text-slate-100">MOST WATCHED</h2>              
+                <p-dropdown [options]="dropdown_opt" [autoDisplayFirst]="true" 
+                            [(ngModel)]="dropdown_val" (onChange)="sortMovies()"
+                            class="ml-4"></p-dropdown>                
+        </div>
+
+        <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
+            <div *ngFor="let movie of movies; let i = index" class="w-full flex flex-col md:flex-row items-center justify-between gap-5">
+                <a routerLink="/details/{{movie.id}}" class="inline-block bg-zinc-200 p-1 border-2 border-black hover:scale-95 hover:shadow-lg hover:shadow-white duration-200">
+                    <img src="../../../assets/thumbnails/{{movie.img}}.png" alt="Thumbnail"
+                    class="w-72">
+                </a>
+                
+                <div class=" flex flex-col gap-3 self-start">
+                    <a routerLink="/details/{{movie.id}}" class="">
+                        <h3 class="font-bold text-2xl inline-block text-amber-400 border-b-transparent border-b-[1.5px] self-start hover:border-amber-400 duration-200">
+                            {{movie.title}}
+                        </h3>
+                    </a>
+                    <div class="flex gap-2 items-center">
+                        <p-rating [readonly]="true" [cancel]="false" [(ngModel)]="ratings_stars[i]" ></p-rating>
+                        <span class="text-white">{{movie.rating}}</span>
+                    </div>                    
+                    <p class="text-white max-w-md text-justify">{{movie.description}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

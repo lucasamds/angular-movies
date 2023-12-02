@@ -1,0 +1,64 @@
+{
+    "movies": [
+        {
+            "id": 0,
+            "title": "Tenet",
+            "description": "Armed with only one word, Tenet, and fighting for the survival of the entire world, a Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.",
+            "rating": 7.8,
+            "duration": "2h 30min",
+            "genre": ["Action", "Sci-Fi"],
+            "release_date": "2020-09-03",
+            "img": "Tenet",
+            "carousel": "tenet",
+            "trailer": "https://www.youtube.com/watch?v=LdOM0x0XDMo"
+        },
+        {
+            "id": 1,
+            "title": "Spider-Man: Into the Spider-Verse",
+            "description": "Teen Miles Morales becomes the Spider-Man of his universe, and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.",
+            "rating": 8.4,
+            "duration": "1h 57min",
+            "genre": ["Action", "Animation", "Adventure"],
+            "release_date": "2018-12-14",
+            "img": "Spider Man",
+            "carousel": "spider-man",
+            "trailer": "https://www.youtube.com/watch?v=tg52up16eq0"
+        },
+        {
+            "id": 2,
+            "title": "Knives Out",
+            "description": "A detective investigates the death of a patriarch of an eccentric, combative family.",
+            "rating": 7.9,
+            "duration": "2h 10min",
+            "genre": ["Comedy", "Crime", "Drama"],
+            "release_date": "2019-11-27",
+            "img": "Knives Out",
+            "carousel": "knives-out",
+            "trailer": "https://www.youtube.com/watch?v=qGqiHJTsRkQ"
+        },
+        {
+            "id": 3,
+            "title": "Guardians of the Galaxy",
+            "description": "A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.",
+            "rating": 8.0,
+            "duration": "2h 1min",
+            "genre": ["Action", "Adventure", "Comedy"],
+            "release_date": "2014-08-01",
+            "img": "Guardians of The Galaxy",
+            "carousel": "guardians",
+            "trailer": "https://www.youtube.com/watch?v=d96cjJhvlMA"
+        },
+        {
+            "id": 4,
+            "title": "Avengers: Age of Ultron",
+            "description": "When Tony Stark and Bruce Banner try to jump-start a dormant peacekeeping program called Ultron, things go horribly wrong and it's up to Earth's mightiest heroes to stop the villainous Ultron from enacting his terrible plan.",
+            "rating": 7.3,
+            "duration": "2h 21min",
+            "genre": ["Action", "Adventure", "Sci-Fi"],
+            "release_date": "2015-05-01",
+            "img": "Avengers",
+            "carousel": "avengers",
+            "trailer": "https://www.youtube.com/watch?v=tmeOjFno6Do"
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+::ng-deep .mycarousel .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+    background-color: #841526;
+  }
+::ng-deep .mycarousel .p-carousel .p-carousel-indicators .p-carousel-indicator button {
+    background-color: #e9ecef;
+    width: 0.6rem;
+    height: 0.6rem;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+    border-radius: 1rem;
+}
+
+::ng-deep .mycarousel .p-carousel-content .p-carousel-next {
+    color: #fff;
+}
+
+::ng-deep .mycarousel .p-carousel-content .p-carousel-prev {
+    color: #fff;
+}
+
+::ng-deep .mycarousel .p-carousel .p-carousel-content .p-carousel-prev:enabled:hover, ::ng-deep .mycarousel .p-carousel .p-carousel-content .p-carousel-next:enabled:hover {
+    color: #841526;
+    border-color: transparent;
+    background: #e9ecef;
+}
+
+::ng-deep .p-rating .p-rating-icon.p-rating-icon-active {
+    color: #841526;
+}
+
+::ng-deep .p-inputtext {
+    padding: 6px;
+}
+
+::ng-deep .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+    color: #841526;
+}
+
+::ng-deep .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    padding: 6px 9px;
+}
+
+::ng-deep .p-dropdown-panel .p-dropdown-items {
+    padding: 0;
+}

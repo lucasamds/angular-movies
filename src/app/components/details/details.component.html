@@ -1,1 +1,46 @@
-<p>details works!</p>
+<main class="bg-dark w-full max-w-7xl mx-auto flex flex-col gap-8 
+    xl:border-l-2 xl:border-r-2 xl:shadow-2xl xl:shadow-black border-slate-300">
+    <section class="w-full mx-auto pt-6">
+        <h2 class="text-amber-500 font-bold text-2xl text-center">{{movie.title|uppercase}}</h2>
+        <iframe class="mx-auto py-6 w-[300px] sm:w-[600px] sm:h-[340px] 
+        md:w-[750px] md:h-[420px] lg:w-[1000] lg:h-[560px]" 
+        [src]="trailerUrl" 
+        title="YouTube video player" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen></iframe>
+
+        <div class="flex flex-row justify-center">
+            <div *ngFor="let genre of movie.genre; let j = index" class="text-amber-400 font-semibold text-base">
+                <span *ngIf="j == 0">{{genre}} </span>
+                <span *ngIf="j != 0" class="pl-1"> - {{genre}}</span>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center w-full max-w-7xl mx-auto my-4 px-2 gap-4 justify-center">
+            <img src="../../../assets/thumbnails/{{movie.img}}.png" class="w-64 rounded-sm" alt="Thubnail">
+            <div class="flex flex-col gap-4">
+                <p class="text-white max-w-md text-justify">{{movie.description}}</p>
+                <div class="flex gap-4 items-center">
+                    <p-rating [readonly]="true" [cancel]="false" [(ngModel)]="rating_stars" ></p-rating>
+                    <span class="text-white">{{movie.rating}}</span>                        
+                </div>
+                <div class="flex flex-col md:h-full md:justify-end">                    
+                    <div class="flex gap-2">
+                        <span class="font-bold text-amber-400">Release date:</span>
+                        <span class="text-white">{{movie.release_date | date}}</span>                        
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="font-bold text-amber-400">Duration:</span>
+                        <span class="text-white pb-6">{{movie.duration}}</span>                        
+                    </div>
+                    <p-button *ngIf="watchlist.includes(movie.id); else elseblock" label="Remove from Watchlist"
+                    icon='fa-solid fa-bookmark' (onClick)="removeWatch(movie.id)" title="Remove from Watchlist"
+                    class="self-center md:self-start"></p-button>
+                    <ng-template #elseblock>
+                        <p-button icon='fa-regular fa-bookmark' (onClick)="addWatch(movie.id)" 
+                        title="Add to Watchlist" label="Add to Watchlist"></p-button>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

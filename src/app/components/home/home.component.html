@@ -1,4 +1,4 @@
-<main class="bg-dark w-full max-w-[1400px] mx-auto">
+<main class="bg-dark w-full max-w-[1400px] mx-auto border-l-2 border-r-2 shadow-2xl shadow-black border-slate-300">
     <!--Carousel-->
     <section class="w-full mx-auto max-w-[1300px] ">
         <p-carousel [value]="movies" [numVisible]="1" [numScroll]="1" class="mycarousel" 
@@ -43,13 +43,12 @@
                         <p-rating [readonly]="true" [cancel]="false" [(ngModel)]="ratings_stars[i]" ></p-rating>
                         <span class="text-white">{{movie.rating}}</span>
                         <div class="ml-4">
-                            <p-button *ngIf="watchlist.includes(movie.id); else elseblock" 
+                            <p-button *ngIf="watchlist.includes(movie.id); else elseblock" title="Remove from Watchlist"
                             icon='fa-solid fa-bookmark' (onClick)="removeWatch(movie.id)"></p-button>
                             <ng-template #elseblock>
-                                <p-button icon='fa-regular fa-bookmark' (onClick)="addWatch(movie.id)"></p-button>
+                                <p-button icon='fa-regular fa-bookmark' (onClick)="addWatch(movie.id)" title="Add to Watchlist"></p-button>
                             </ng-template>
                         </div>
-
                     </div>                    
                     <p class="text-white max-w-md text-justify">{{movie.description}}</p>
                     <div class="flex flex-col gap-2 md:h-full md:justify-end">

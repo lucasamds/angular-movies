@@ -25,7 +25,8 @@ export class HomeComponent implements OnInit {
         this.movies = data;
         this.setRatingStars();
         this.createWatchlist();
-      }
+      },
+      error: (error) => console.error('Error found.', error)
     })
   }
 

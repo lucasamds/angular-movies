@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   dropdown_opt: string[] = ['Title', 'Release Date', 'Rating'];
   dropdown_val: string = 'Title';
   ratings_stars!: number[];
+  watchlist!: number[];
 
 
   constructor(private movieService: MovieService){}
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit {
       next: (data) => {
         this.movies = data;
         this.setRatingStars();
+        this.createWatchlist();
       }
     })
   }
@@ -47,5 +49,29 @@ export class HomeComponent implements OnInit {
     for(let movie of this.movies){
       this.ratings_stars.push(movie.rating/2)
     }
+  }
+
+  /** creates the user watchlist if there's none */
+  createWatchlist(): void{
+    let user_watchlist = localStorage.getItem('watchlist');
+    this.watchlist = user_watchlist? JSON.parse(user_watchlist) : [];
+    localStorage.setItem('watchlist', JSON.stringify(this.watchlist));
+  }
+
+  /** Add a movie on the watchlist */
+  addWatch(id: number): void{
+    this.watchlist.push(id);
+    localStorage.setItem('watchlist', JSON.stringify(this.watchlist));
+  }
+
+  /** Remove one movie from the watchlist */
+  removeWatch(id: number): void{
+    let user_watchlist = localStorage.getItem('watchlist');
+    this.watchlist = user_watchlist? JSON.parse(user_watchlist): [];
+    if(this.watchlist.includes(id)){
+      const i = this.watchlist.indexOf(id);
+      this.watchlist.splice(i, 1);
+    }    
+    localStorage.setItem('watchlist', JSON.stringify(this.watchlist));
   }
 }

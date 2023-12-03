@@ -24,22 +24,43 @@
 
         <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
             <div *ngFor="let movie of movies; let i = index" class="w-full flex flex-col md:flex-row items-center justify-between gap-5">
-                <a routerLink="/details/{{movie.id}}" class="inline-block bg-zinc-200 p-1 border-2 border-black hover:scale-95 hover:shadow-lg hover:shadow-white duration-200">
-                    <img src="../../../assets/thumbnails/{{movie.img}}.png" alt="Thumbnail"
-                    class="w-72">
+                <a routerLink="/details/{{movie.id}}" class="inline-block w-64 h-80 border-2 border-black hover:scale-95 hover:shadow-md hover:shadow-white 
+                duration-200 bg-origin-border bg-cover bg-no-repeat"
+                style="background-image: url('../../../assets/thumbnails/{{movie.img}}.png' );">
+                    <div class="w-full flex justify-between" *ngIf="watchlist.includes(movie.id)">
+                        <i class="pl-2 fa-solid fa-bookmark text-amber-400 opacity-75" style="font-size: 24px;"></i>
+                        <span class="mr-4 font-semibold px-2 bg-amber-400/75 rounded-b-md">On my Watchlist</span>
+                    </div>                    
                 </a>
                 
-                <div class=" flex flex-col gap-3 self-start">
+                <div class=" flex flex-col gap-3 self-start h-full">
                     <a routerLink="/details/{{movie.id}}" class="">
                         <h3 class="font-bold text-2xl inline-block text-amber-400 border-b-transparent border-b-[1.5px] self-start hover:border-amber-400 duration-200">
                             {{movie.title}}
                         </h3>
                     </a>
-                    <div class="flex gap-2 items-center">
+                    <div class="flex gap-3 items-center">
                         <p-rating [readonly]="true" [cancel]="false" [(ngModel)]="ratings_stars[i]" ></p-rating>
                         <span class="text-white">{{movie.rating}}</span>
+                        <div class="ml-4">
+                            <p-button *ngIf="watchlist.includes(movie.id); else elseblock" 
+                            icon='fa-solid fa-bookmark' (onClick)="removeWatch(movie.id)"></p-button>
+                            <ng-template #elseblock>
+                                <p-button icon='fa-regular fa-bookmark' (onClick)="addWatch(movie.id)"></p-button>
+                            </ng-template>
+                        </div>
+
                     </div>                    
                     <p class="text-white max-w-md text-justify">{{movie.description}}</p>
+                    <div class="flex flex-col gap-2 md:h-full md:justify-end">
+                        <span class="text-amber-400 font-thin text-sm">{{movie.release_date.substring(0,4)}} - {{movie.duration}}</span>
+                        <div class="flex">
+                            <div *ngFor="let genre of movie.genre; let j = index" class="text-amber-400 font-thin text-sm">
+                                <span *ngIf="j == 0">{{genre}} </span>
+                                <span *ngIf="j != 0" class="pl-1"> - {{genre}}</span>
+                            </div>
+                        </div>                        
+                    </div>
                 </div>
             </div>
         </div>

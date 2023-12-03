@@ -29,6 +29,7 @@
 
 ::ng-deep .p-inputtext {
     padding: 6px;
+    font-weight:600;
 }
 
 ::ng-deep .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
@@ -37,8 +38,26 @@
 
 ::ng-deep .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
     padding: 6px 9px;
+    font-weight: 600;
 }
 
 ::ng-deep .p-dropdown-panel .p-dropdown-items {
     padding: 0;
+}
+
+::ng-deep .p-button.p-button-icon-only {
+    width: 2.3rem;
+    padding: 0.3rem 0;
+}
+
+::ng-deep .p-button {
+    
+    border: 2px solid #841526;
+    color: #fbbf24;
+}
+
+::ng-deep .p-button:enabled:hover {
+    background: #841526;
+    color: #fbbf24;
+    border-color: #841526;
 }

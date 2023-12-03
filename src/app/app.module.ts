@@ -11,9 +11,10 @@ import { WatchlistComponent } from './components/watchlist/watchlist.component';
 import { CarouselModule } from 'primeng/carousel';
 import { DropdownModule } from 'primeng/dropdown';
 import { RatingModule } from 'primeng/rating';
+import { ButtonModule } from 'primeng/button'
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     CarouselModule,
     DropdownModule,
     RatingModule,
+    ButtonModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule

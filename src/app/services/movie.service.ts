@@ -8,7 +8,7 @@ import { Movie } from '../models/movie.model';
 })
 export class MovieService {
 
-  private apiRoot: string = 'http://localhost:3000/movies/';
+  private apiRoot: string = 'https://json-server-pied-nine.vercel.app/movies/';
 
   constructor(private http: HttpClient) { }
 

@@ -16,10 +16,12 @@ export class DetailsComponent implements OnInit{
   trailerUrl!: SafeResourceUrl;
   watchlist!: number[];
   rating_stars!: number;
+  loading!: boolean;
 
   constructor(private route: ActivatedRoute, private movieService: MovieService, private sanitizer: DomSanitizer){}
 
   ngOnInit(): void {
+      this.loading = true;
       this.movie_id = Number(this.route.snapshot.paramMap.get('id'));
       this.movieService.getMovie(this.movie_id).subscribe({
         next: (data) => {
@@ -27,6 +29,7 @@ export class DetailsComponent implements OnInit{
           this.setTrailerUrl();
           this.checkWatchlist();
           this.setRating();
+          this.stopLoading();
         },
         error: (error) => console.error('Error found.', error)        
       })
@@ -64,5 +67,10 @@ export class DetailsComponent implements OnInit{
   /** Sets movie rating */
   setRating(){
     this.rating_stars = this.movie.rating/2;
+  }
+
+  /** Stops loading animation */
+  stopLoading(){
+    this.loading = false;
   }
 }

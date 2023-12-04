@@ -1,6 +1,6 @@
-<main class="bg-dark w-full max-w-7xl mx-auto flex flex-col gap-8 
+<main class="bg-dark w-full max-w-7xl mx-auto flex flex-col gap-8 my-main
     xl:border-l-2 xl:border-r-2 xl:shadow-2xl xl:shadow-black border-slate-300">
-    <section class="w-full mx-auto pt-6">
+    <section *ngIf="!loading; else loadingBlock" class="w-full mx-auto pt-6">
         <h2 class="text-amber-500 font-bold text-2xl text-center">{{movie.title|uppercase}}</h2>
         <iframe class="mx-auto py-6 w-[300px] sm:w-[600px] sm:h-[340px] 
         md:w-[750px] md:h-[420px] lg:w-[1000] lg:h-[560px]" 
@@ -43,4 +43,9 @@
             </div>
         </div>
     </section>
+    <ng-template #loadingBlock>
+        <div class="text-amber-400 inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current 
+        border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] mx-auto my-auto"
+        role="status"></div>
+    </ng-template>
 </main>

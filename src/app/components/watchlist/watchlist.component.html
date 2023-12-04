@@ -1,1 +1,32 @@
-<p>watchlist works!</p>
+<main class="bg-dark w-full max-w-7xl mx-auto my-main
+    xl:border-l-2 xl:border-r-2 xl:shadow-2xl xl:shadow-black border-slate-300">
+    <section class="w-full flex flex-col gap-8 mx-auto pt-6">
+        <h2 class="text-amber-500 font-bold text-2xl text-center">MY WATCHLIST</h2>
+        <div class="w-full max-w-5xl mx-auto flex flex-col gap-4">
+            <div *ngFor="let movie of movies; let i = index" class="w-full rounded-md xl:mx-3 p-1 
+            hover:bg-gradient-to-r hover:scale-95 duration-300 h-48" 
+            [ngClass]="{'hover:from-amber-400': i % 2 == 0, 'hover:to-transparent': i % 2 == 0, 
+            'hover:to-70%': i % 2 == 0,'hover:from-transparent': i % 2 == 1,'hover:from-30%': i % 2 == 1,
+            'hover:to-amber-400': i % 2 == 1}">
+                <div class="w-full h-full flex flex-row bg-dark" [ngClass]="{'justify-end': i % 2 == 1}">
+                    <a routerLink="/details/{{movie.id}}" class="w-full bg-top bg-cover" title="{{movie.title}}"
+                    style="background-image: url('../../../assets/carousel/{{movie.carousel}}.jpg');">
+                        <div class="flex gap-4" [ngClass]="{'flex-row-reverse' : i % 2 == 1}">
+                            <div class="flex flex-col px-4 py-2 bg-darkred/80" 
+                            [ngClass]="{'items-end': i % 2 == 1, 'rounded-br-md': i % 2 == 0, 'rounded-bl-md': i % 2 == 1 }">
+                                <h2 class="text-amber-400 font-bold text-2xl">{{movie.title}}</h2>
+                                <span class="text-white text-sm mt-6">{{movie.release_date.substring(0,4)}} - {{movie.duration}}</span>
+                                <div class="flex">
+                                    <div *ngFor="let genre of movie.genre; let j = index" class="text-white text-sm">
+                                        <span *ngIf="j == 0">{{genre}} </span>
+                                        <span *ngIf="j != 0" class="pl-1"> - {{genre}}</span>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>                    
+                    </a>
+                </div>  
+            </div>
+        </div>
+    </section>
+</main>

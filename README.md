@@ -1,6 +1,7 @@
 # Angular Movies
 
 This project was created with the intention of practicing Angular. Here i tried to simulate a website that list movies.
+You can check the [live version here](https://angular-movies-alpha.vercel.app/).
 
 The project has three pages:
 - Home page that shows the available movies

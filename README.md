@@ -10,6 +10,7 @@ The project has three pages:
 ## Dependencies
 
 The dependencies of this project are:
+- [Angular 16](https://angular.io/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [json-server](https://www.npmjs.com/package/json-server)
 - [PrimeNG](https://primeng.org/)
